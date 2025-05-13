@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oyuncu Yönetimi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header Bölümü -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="match.html">Maç Ayarla</a></li>
+        <li><a href="status.html">Son Durum</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sağdaki Karşılama Mesajı -->
+  <div class="welcome-message">
+    <h2>Merhaba, Top Oynama Sitesine Hoşgeldiniz!</h2>
+  </div>
+
+  <!-- Oyuncu Ekleme ve Listeleme Bölümü -->
+  <section id="player-management">
+    <div class="player-actions">
+      <button id="addPlayerBtn">Oyuncu Ekle</button>
+      <button id="removePlayerBtn">Oyuncu Çıkar</button>
+    </div>
+
+    <div class="player-list">
+      <h3>Oyuncu Listesi</h3>
+      <ul id="playerList">
+        <!-- Buraya oyuncu listesi dinamik olarak eklenip çıkarılacak -->
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer Bölümü -->
+  <footer>
+    <p>&copy; 2025 Web Sitemiz. Tüm Hakları Saklıdır.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
