@@ -67,6 +67,15 @@
       </div>
     </div>
 
+    <!-- Seçilen Oyuncuları Göster -->
+    <div id="selected-players">
+      <h2>Seçilen Oyuncular</h2>
+      <div id="selected-goalkeeper"></div>
+      <div id="selected-forwards"></div>
+      <div id="selected-midfielders"></div>
+      <div id="selected-defenders"></div>
+    </div>
+
     <!-- Halı Saha Seçimi -->
     <div class="field-selection">
       <h2>Halı Saha Seç</h2>
@@ -84,10 +93,22 @@
     <div class="time-selection">
       <h2>Zaman Seç</h2>
       <select id="time-select">
-        <!-- Zaman dilimleri buraya ekleniyor -->
+        <option value="09:00">09:00</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="12:00">12:00</option>
+        <option value="13:00">13:00</option>
+        <option value="14:00">14:00</option>
+        <option value="15:00">15:00</option>
+        <option value="16:00">16:00</option>
+        <option value="17:00">17:00</option>
+        <option value="18:00">18:00</option>
       </select>
     </div>
     
+    <!-- Seçilen Zamanı Göster -->
+    <div id="time-display"></div>
+
     <!-- Maçı Ayarla Butonu -->
     <div class="setup-buttons">
       <button id="setupMatch">Maçı Ayarla</button>
