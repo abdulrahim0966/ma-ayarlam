@@ -73,51 +73,14 @@ nav ul li a:hover {
   border-bottom: 1px solid #ddd;
 }
 
-/* Maç Ayarla Sayfası */
-#match-setup {
-  margin-top: 100px;
-  padding: 50px;
-  text-align: center;
-  background-color: #e9f7ef;
+/* Maç Ayarla Butonu */
+.setup-buttons {
+  margin-top: 30px;
 }
 
-#match-setup h1 {
-  font-size: 36px;
-  margin-bottom: 40px;
-}
-
-.player-selection,
-.field-selection,
-.time-selection {
-  margin-bottom: 30px;
-}
-
-.player-positions {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.position {
-  width: 22%;
-}
-
-.position select {
-  width: 100%;
-  padding: 8px;
-  margin-top: 10px;
-}
-
-.field-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.field-buttons button {
-  background-color: #ff9800;
+.setup-button {
+  background-color: #28a745;
   color: white;
-  border: none;
   padding: 15px 30px;
   font-size: 18px;
   cursor: pointer;
@@ -125,34 +88,7 @@ nav ul li a:hover {
   transition: background-color 0.3s ease;
 }
 
-.field-buttons button:hover {
-  background-color: #f57c00;
-}
-
-.fields-list {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #28a745;
-}
-
-.time-selection select {
-  padding: 10px;
-  font-size: 18px;
-  margin-top: 10px;
-}
-
-.setup-buttons button {
-  background-color: #28a745;
-  color: white;
-  padding: 20px 40px;
-  font-size: 20px;
-  cursor: pointer;
-  border: none;
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.setup-buttons button:hover {
+.setup-button:hover {
   background-color: #218838;
 }
 
