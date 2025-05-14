@@ -42,40 +42,48 @@ nav ul li a:hover {
   color: #ff9800;
 }
 
-/* Sağdaki Karşılama Mesajı */
-.welcome-message {
-  position: fixed;
-  top: 120px;
-  left: 20px;
-  background-color: #4CAF50;
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 250px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
-  z-index: 999;
-}
-
-.welcome-message h2 {
-  margin: 0;
-  font-size: 20px;
-}
-
-/* Oyuncu Ekleme ve Listeleme */
-#player-management {
+/* Maç Ayarla İçeriği */
+#match-setup {
   margin-top: 100px;
   padding: 50px;
   text-align: center;
+  background-color: #e9f7ef;
 }
 
-.player-actions {
+#match-setup h1 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.player-selection,
+.field-selection,
+.time-selection {
   margin-bottom: 30px;
 }
 
-button {
+.player-positions {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.position {
+  width: 22%;
+}
+
+.position select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
+}
+
+.field-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.field-buttons button {
   background-color: #ff9800;
   color: white;
   border: none;
@@ -84,39 +92,39 @@ button {
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s ease;
-  margin: 10px;
 }
 
-button:hover {
+.field-buttons button:hover {
   background-color: #f57c00;
 }
 
-.player-list {
-  background-color: #e9f7ef;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.fields-list {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #28a745;
 }
 
-.player-list h3 {
-  font-size: 24px;
-  margin-bottom: 20px;
+.time-selection select {
+  padding: 10px;
+  font-size: 18px;
+  margin-top: 10px;
 }
 
-#playerList {
-  list-style-type: none;
-  padding: 0;
-}
-
-#playerList li {
+.setup-buttons button {
   background-color: #28a745;
   color: white;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
+  padding: 20px 40px;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
 }
 
-/* Footer Bölümü */
+.setup-buttons button:hover {
+  background-color: #218838;
+}
+
 footer {
   background-color: #333;
   color: white;
