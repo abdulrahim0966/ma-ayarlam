@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ana Sayfa</title>
+  <title>Oyuncu Yönetimi</title>
   <link rel="stylesheet" href="style-home.css">
 </head>
 <body>
-
   <!-- Header Bölümü -->
   <header>
     <nav>
@@ -19,34 +18,23 @@
     </nav>
   </header>
 
-  <!-- Ana Sayfa İçeriği -->
-  <section id="home">
-    <h1>Top Oynama Sitesine Hoşgeldiniz!</h1>
-    <p>Burada arkadaşlarınızla rahatça maç ayarlayabilir, oyuncu listeleri oluşturabilirsiniz.</p>
+  <!-- Sağdaki Karşılama Mesajı -->
+  <div class="welcome-message">
+    <h2>Merhaba, Top Oynama Sitesine Hoşgeldiniz!</h2>
+  </div>
 
-    <div id="player-list">
-      <h2>Oyuncu Listesi</h2>
-      <div class="player-item">Ahmet</div>
-      <div class="player-item">Mehmet</div>
-      <div class="player-item">Ali</div>
-      <div class="player-item">Veli</div>
-      <div class="player-item">Can</div>
-      <div class="player-item">Burak</div>
-      <div class="player-item">Emir</div>
-      <div class="player-item">Onur</div>
-      <div class="player-item">Murat</div>
-      <div class="player-item">Deniz</div>
-      <div class="player-item">Hakan</div>
-      <div class="player-item">Serkan</div>
-      <div class="player-item">Sefa</div>
-      <div class="player-item">Cem</div>
-      <div class="player-item">Berk</div>
-      <div class="player-item">Efe</div>
+  <!-- Oyuncu Ekleme ve Listeleme Bölümü -->
+  <section id="player-management">
+    <div class="player-actions">
+      <button id="addPlayerBtn">Oyuncu Ekle</button>
+      <button id="removePlayerBtn">Oyuncu Çıkar</button>
     </div>
 
-    <!-- Maç Ayarla Butonu -->
-    <div class="setup-buttons">
-      <a href="match.html"><button class="setup-button">Maç Ayarla</button></a>
+    <div class="player-list">
+      <h3>Oyuncu Listesi</h3>
+      <ul id="playerList">
+        <!-- Buraya oyuncu listesi dinamik olarak eklenip çıkarılacak -->
+      </ul>
     </div>
   </section>
 
