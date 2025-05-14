@@ -1,47 +1,51 @@
-// Oyuncu Listesi
-let playerList = [
+// Oyuncu listesi (Önceden tanımlanmış)
+let players = [
   "Ahmet", "Mehmet", "Ali", "Veli", "Can", "Burak", "Emir", "Onur",
   "Murat", "Deniz", "Hakan", "Serkan", "Sefa", "Cem", "Berk", "Efe"
 ];
 
-// HTML elemanları
-const playerListContainer = document.getElementById("playerList");
-const addPlayerBtn = document.getElementById("addPlayerBtn");
-const removePlayerBtn = document.getElementById("removePlayerBtn");
+// Halı saha seçimi butonları
+const yolavaButton = document.getElementById("yolava");
+const termalButton = document.getElementById("termal");
+const arumutluButton = document.getElementById("arumutlu");
+const fieldsList = document.getElementById("fields-list");
 
-// Oyuncu listesi güncelleniyor
-function updatePlayerList() {
-  playerListContainer.innerHTML = ""; // Listeyi temizle
-  playerList.forEach(player => {
-    const li = document.createElement("li");
-    li.textContent = player;
-    playerListContainer.appendChild(li);
+// Zaman seçimi
+const timeSelect = document.getElementById("time-select");
+
+// Seçilen halı saha ve oyuncular
+let selectedField = [];
+let selectedPlayers = {
+  goalkeeper: null,
+  forwards: [],
+  midfielders: [],
+  defenders: []
+};
+
+// Saat dilimlerini oluştur
+function populateTimeSelect() {
+  let timeOptions = [];
+  for (let hour = 12; hour <= 23; hour++) {
+    let nextHour = hour + 1;
+    if (nextHour > 23) nextHour = 0;
+    let hourStr = hour < 10 ? `0${hour}` : hour;
+    let nextHourStr = nextHour < 10 ? `0${nextHour}` : nextHour;
+    timeOptions.push(`${hourStr}:${nextHourStr}`);
+  }
+  timeOptions.forEach(option => {
+    const optionElem = document.createElement("option");
+    optionElem.value = option;
+    optionElem.textContent = `${option}`;
+    timeSelect.appendChild(optionElem);
   });
 }
 
-// Oyuncu ekleme
-addPlayerBtn.addEventListener("click", () => {
-  const newPlayerName = prompt("Oyuncu adını girin: ");
-  if (newPlayerName && !playerList.includes(newPlayerName)) {
-    playerList.push(newPlayerName); // Yeni oyuncu ekle
-    updatePlayerList();
-  } else if (playerList.includes(newPlayerName)) {
-    alert("Bu oyuncu zaten mevcut!");
+// Halı saha seçim işlemi
+yolavaButton.addEventListener("click", () => {
+  if (!selectedField.includes("Yolava Halı Saha")) {
+    selectedField.push("Yolava Halı Saha");
+    updateFieldList();
   }
 });
-
-// Oyuncu çıkarma
-removePlayerBtn.addEventListener("click", () => {
-  const playerToRemove = prompt("Çıkarılacak oyuncunun adını girin: ");
-  const playerIndex = playerList.indexOf(playerToRemove);
-  
-  if (playerIndex !== -1) {
-    playerList.splice(playerIndex, 1); // Oyuncuyu çıkar
-    updatePlayerList();
-  } else {
-    alert("Bu oyuncu listede yok!");
-  }
-});
-
-// İlk başta listeyi güncelle
-updatePlayerList();
+termalButton.addEventListener("click", () => {
+  if (!
