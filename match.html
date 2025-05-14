@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <!-- Header Bölümü -->
   <header>
     <nav>
@@ -30,25 +31,37 @@
           <label for="goalkeeper">Kaleci</label>
           <select id="goalkeeper">
             <option value="">Seçin</option>
-            <!-- Dinamik oyuncu listesi buraya eklenecek -->
+            <option value="Ahmet">Ahmet</option>
+            <option value="Mehmet">Mehmet</option>
+            <option value="Ali">Ali</option>
+            <!-- Diğer oyuncular eklenebilir -->
           </select>
         </div>
         <div class="position">
           <label for="forwards">Forvetler</label>
-          <select id="forwards">
-            <option value="">Seçin</option>
+          <select id="forwards" multiple>
+            <option value="Veli">Veli</option>
+            <option value="Can">Can</option>
+            <option value="Burak">Burak</option>
+            <!-- Diğer oyuncular eklenebilir -->
           </select>
         </div>
         <div class="position">
           <label for="midfielders">Orta Sahalar</label>
-          <select id="midfielders">
-            <option value="">Seçin</option>
+          <select id="midfielders" multiple>
+            <option value="Emir">Emir</option>
+            <option value="Onur">Onur</option>
+            <option value="Murat">Murat</option>
+            <!-- Diğer oyuncular eklenebilir -->
           </select>
         </div>
         <div class="position">
           <label for="defenders">Defanslar</label>
-          <select id="defenders">
-            <option value="">Seçin</option>
+          <select id="defenders" multiple>
+            <option value="Deniz">Deniz</option>
+            <option value="Hakan">Hakan</option>
+            <option value="Serkan">Serkan</option>
+            <!-- Diğer oyuncular eklenebilir -->
           </select>
         </div>
       </div>
@@ -63,7 +76,7 @@
         <button id="arumutlu">Armutlu Halı Saha</button>
       </div>
       <div id="fields-list" class="fields-list">
-        <!-- Seçilen halı sahalar buraya dinamik olarak eklenip gösterilecek -->
+        <!-- Seçilen halı sahalar burada görünecek -->
       </div>
     </div>
 
