@@ -3,46 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oyuncu Yönetimi</title>
-  <link rel="stylesheet" href="style-home.css">
+  <title>Takım Oluştur</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Header Bölümü -->
+
   <header>
     <nav>
       <ul>
-        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="index.html">Takım Oluştur</a></li>
         <li><a href="match.html">Maç Ayarla</a></li>
         <li><a href="status.html">Son Durum</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Sağdaki Karşılama Mesajı -->
-  <div class="welcome-message">
-    <h2>Merhaba, Top Oynama Sitesine Hoşgeldiniz!</h2>
-  </div>
+  <main>
+    <h1>Takımlarını Oluştur</h1>
+    <div class="teams">
+      <div class="team" id="teamA">
+        <h2>Takım A</h2>
+        <input type="text" id="playerAInput" placeholder="Oyuncu adı girin">
+        <button onclick="addPlayer('A')">Oyuncu Ekle</button>
+        <ul id="teamAList"></ul>
+      </div>
 
-  <!-- Oyuncu Ekleme ve Listeleme Bölümü -->
-  <section id="player-management">
-    <div class="player-actions">
-      <button id="addPlayerBtn">Oyuncu Ekle</button>
-      <button id="removePlayerBtn">Oyuncu Çıkar</button>
+      <div class="team" id="teamB">
+        <h2>Takım B</h2>
+        <input type="text" id="playerBInput" placeholder="Oyuncu adı girin">
+        <button onclick="addPlayer('B')">Oyuncu Ekle</button>
+        <ul id="teamBList"></ul>
+      </div>
     </div>
+  </main>
 
-    <div class="player-list">
-      <h3>Oyuncu Listesi</h3>
-      <ul id="playerList">
-        <!-- Buraya oyuncu listesi dinamik olarak eklenip çıkarılacak -->
-      </ul>
-    </div>
-  </section>
-
-  <!-- Footer Bölümü -->
   <footer>
-    <p>&copy; 2025 Web Sitemiz. Tüm Hakları Saklıdır.</p>
+    <p>&copy; 2025 Maç Ayarlama Sistemi</p>
   </footer>
 
-  <script src="script-home.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
