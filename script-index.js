@@ -2,6 +2,9 @@
 let teamAPlayers = [];
 let teamBPlayers = [];
 
+// Maksimum oyuncu sayısı
+const maxPlayers = 8;
+
 // Element referansları
 const inputTeamA = document.getElementById('inputTeamA');
 const addTeamABtn = document.getElementById('addTeamA');
@@ -21,6 +24,10 @@ function addPlayer(teamArray, listElement, playerName) {
   }
   if (teamArray.includes(playerName)) {
     alert('Bu oyuncu zaten eklendi.');
+    return false;
+  }
+  if (teamArray.length >= maxPlayers) {
+    alert(`Bir takım en fazla ${maxPlayers} oyuncu ekleyebilir.`);
     return false;
   }
   teamArray.push(playerName);
