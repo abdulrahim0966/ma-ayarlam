@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Oyuncu Yönetimi</title>
-  <link rel="stylesheet" href="style-index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Takım Yönetimi</title>
+  <link rel="stylesheet" href="style-index.css" />
 </head>
 <body>
 
-  <!-- Menü -->
   <header>
     <nav>
       <ul>
@@ -19,25 +18,26 @@
     </nav>
   </header>
 
-  <!-- İçerik -->
   <main>
-    <h1>Takım Oyuncularını Belirle</h1>
+    <section id="teamA" class="team-section">
+      <h2>Takım A</h2>
+      <input type="text" id="inputTeamA" placeholder="Oyuncu ismi ekle" />
+      <button id="addTeamA">Oyuncu Ekle</button>
+      <ul id="listTeamA"></ul>
+    </section>
 
-    <div class="team-container">
-      <div class="team-box">
-        <h2>Takım A</h2>
-        <button id="addPlayerA">Oyuncu Ekle</button>
-        <ul id="teamAList"></ul>
-      </div>
-      <div class="team-box">
-        <h2>Takım B</h2>
-        <button id="addPlayerB">Oyuncu Ekle</button>
-        <ul id="teamBList"></ul>
-      </div>
+    <section id="teamB" class="team-section">
+      <h2>Takım B</h2>
+      <input type="text" id="inputTeamB" placeholder="Oyuncu ismi ekle" />
+      <button id="addTeamB">Oyuncu Ekle</button>
+      <ul id="listTeamB"></ul>
+    </section>
+
+    <div class="match-setup-button">
+      <button id="goToMatch">Maç Ayarla</button>
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Web Sitemiz. Tüm Hakları Saklıdır.</p>
   </footer>
