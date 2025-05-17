@@ -3,44 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Takım Oluştur</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Oyuncu Yönetimi</title>
+  <link rel="stylesheet" href="style-index.css">
 </head>
 <body>
 
+  <!-- Menü -->
   <header>
     <nav>
       <ul>
-        <li><a href="index.html">Takım Oluştur</a></li>
+        <li><a href="index.html">Ana Sayfa</a></li>
         <li><a href="match.html">Maç Ayarla</a></li>
         <li><a href="status.html">Son Durum</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- İçerik -->
   <main>
-    <h1>Takımlarını Oluştur</h1>
-    <div class="teams">
-      <div class="team" id="teamA">
+    <h1>Takım Oyuncularını Belirle</h1>
+
+    <div class="team-container">
+      <div class="team-box">
         <h2>Takım A</h2>
-        <input type="text" id="playerAInput" placeholder="Oyuncu adı girin">
-        <button onclick="addPlayer('A')">Oyuncu Ekle</button>
+        <button id="addPlayerA">Oyuncu Ekle</button>
         <ul id="teamAList"></ul>
       </div>
-
-      <div class="team" id="teamB">
+      <div class="team-box">
         <h2>Takım B</h2>
-        <input type="text" id="playerBInput" placeholder="Oyuncu adı girin">
-        <button onclick="addPlayer('B')">Oyuncu Ekle</button>
+        <button id="addPlayerB">Oyuncu Ekle</button>
         <ul id="teamBList"></ul>
       </div>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Maç Ayarlama Sistemi</p>
+    <p>&copy; 2025 Web Sitemiz. Tüm Hakları Saklıdır.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script-index.js"></script>
 </body>
 </html>
