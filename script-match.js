@@ -1,87 +1,67 @@
-// script-match.js
+document.addEventListener("DOMContentLoaded", () => {
+  renderTeamPlayers();
+  populateTimeOptions();
 
-// Sayfa yüklendiğinde çalışacak
-window.onload = function() {
-  // Takım oyuncularını index sayfasından localStorage'dan alıp dolduruyoruz
-  const teamAPlayersSelect = document.getElementById('teamAPlayers');
-  const teamBPlayersSelect = document.getElementById('teamBPlayers');
+  document.getElementById("yolava").addEventListener("click", () => setField("Yolava Halı Saha"));
+  document.getElementById("termal").addEventListener("click", () => setField("Termal Halı Saha"));
+  document.getElementById("arumutlu").addEventListener("click", () => setField("Armutlu Halı Saha"));
+  document.getElementById("time-select").addEventListener("change", updateSelectedTime);
+  document.getElementById("setupMatch").addEventListener("click", saveMatchData);
+});
 
-  let teamAPlayers = JSON.parse(localStorage.getItem('teamAPlayers')) || [];
-  let teamBPlayers = JSON.parse(localStorage.getItem('teamBPlayers')) || [];
+function renderTeamPlayers() {
+  const teamA = JSON.parse(localStorage.getItem("teamAPlayers")) || [];
+  const teamB = JSON.parse(localStorage.getItem("teamBPlayers")) || [];
 
-  // Takım A oyuncularını select içine ekle
-  teamAPlayers.forEach(player => {
-    let option = document.createElement('option');
-    option.value = player;
-    option.textContent = player;
-    teamAPlayersSelect.appendChild(option);
+  const teamAList = document.getElementById("teamAList");
+  const teamBList = document.getElementById("teamBList");
+
+  teamAList.innerHTML = "";
+  teamBList.innerHTML = "";
+
+  teamA.forEach(player => {
+    const li = document.createElement("li");
+    li.textContent = player;
+    teamAList.appendChild(li);
   });
 
-  // Takım B oyuncularını select içine ekle
-  teamBPlayers.forEach(player => {
-    let option = document.createElement('option');
-    option.value = player;
-    option.textContent = player;
-    teamBPlayersSelect.appendChild(option);
+  teamB.forEach(player => {
+    const li = document.createElement("li");
+    li.textContent = player;
+    teamBList.appendChild(li);
   });
+}
 
-  // Halı saha seçimi butonları
-  const fieldButtons = document.querySelectorAll('.field-buttons button');
-  const selectedFieldDisplay = document.getElementById('selectedField');
-  let selectedField = '';
+function setField(fieldName) {
+  document.getElementById("selectedField").textContent = fieldName;
+}
 
-  fieldButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      selectedField = button.textContent;
-      selectedFieldDisplay.textContent = `Seçilen Halı Saha: ${selectedField}`;
-    });
-  });
-
-  // Zaman seçimi dropdownunu doldur
-  const timeSelect = document.getElementById('time-select');
+function populateTimeOptions() {
+  const select = document.getElementById("time-select");
   for (let hour = 8; hour <= 17; hour++) {
-    let displayHour = hour < 10 ? `0${hour}:00` : `${hour}:00`;
-    let option = document.createElement('option');
-    option.value = displayHour;
-    option.textContent = displayHour;
-    timeSelect.appendChild(option);
+    const option = document.createElement("option");
+    option.value = `${hour}:00`;
+    option.textContent = `${hour}:00`;
+    select.appendChild(option);
+  }
+}
+
+function updateSelectedTime() {
+  const selectedTime = document.getElementById("time-select").value;
+  document.getElementById("selectedTime").textContent = selectedTime;
+}
+
+function saveMatchData() {
+  const field = document.getElementById("selectedField").textContent;
+  const time = document.getElementById("time-select").value;
+
+  if (!field || !time) {
+    alert("Lütfen saha ve zaman seçin!");
+    return;
   }
 
-  const selectedTimeDisplay = document.getElementById('selectedTime');
-  selectedTimeDisplay.textContent = timeSelect.value;
+  localStorage.setItem("selectedField", field);
+  localStorage.setItem("selectedTime", time);
 
-  timeSelect.addEventListener('change', () => {
-    selectedTimeDisplay.textContent = timeSelect.value;
-  });
-
-  // Maçı ayarla butonuna basıldığında seçilen bilgileri kaydet ve Son Durum sayfasına yönlendir
-  document.getElementById('setupMatch').addEventListener('click', () => {
-    if (!selectedField) {
-      alert('Lütfen halı saha seçiniz!');
-      return;
-    }
-
-    if (!timeSelect.value) {
-      alert('Lütfen zaman seçiniz!');
-      return;
-    }
-
-    // Seçilen oyuncuların dizilerini al
-    const selectedTeamAPlayers = Array.from(teamAPlayersSelect.selectedOptions).map(opt => opt.value);
-    const selectedTeamBPlayers = Array.from(teamBPlayersSelect.selectedOptions).map(opt => opt.value);
-
-    if (selectedTeamAPlayers.length === 0 || selectedTeamBPlayers.length === 0) {
-      alert('Lütfen her iki takımdan en az bir oyuncu seçiniz!');
-      return;
-    }
-
-    // LocalStorage'a kaydet
-    localStorage.setItem('selectedTeamAPlayers', JSON.stringify(selectedTeamAPlayers));
-    localStorage.setItem('selectedTeamBPlayers', JSON.stringify(selectedTeamBPlayers));
-    localStorage.setItem('selectedField', selectedField);
-    localStorage.setItem('selectedTime', timeSelect.value);
-
-    // Son Durum sayfasına git
-    window.location.href = 'status.html';
-  });
-};
+  window.location.href = "status.html";
+}
