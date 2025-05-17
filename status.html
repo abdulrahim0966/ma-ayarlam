@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Son Durum</title>
+  <link rel="stylesheet" href="style-status.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="match.html">Maç Ayarla</a></li>
+        <li><a href="status.html" class="active">Son Durum</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Maç Bilgileri</h1>
+
+    <div class="teams">
+      <div class="team" id="teamA">
+        <h2>Takım A</h2>
+        <ul id="teamAPlayers"></ul>
+      </div>
+
+      <div class="team" id="teamB">
+        <h2>Takım B</h2>
+        <ul id="teamBPlayers"></ul>
+      </div>
+    </div>
+
+    <div class="details">
+      <p><strong>Halı Saha:</strong> <span id="fieldName">Yükleniyor...</span></p>
+      <p><strong>Zaman:</strong> <span id="matchTime">Yükleniyor...</span></p>
+    </div>
+  </main>
+
+  <script src="script-status.js"></script>
+</body>
+</html>
