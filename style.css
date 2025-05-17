@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Takım Oluştur</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Takım Oluştur</a></li>
+        <li><a href="match.html">Maç Ayarla</a></li>
+        <li><a href="status.html">Son Durum</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Takımlarını Oluştur</h1>
+    <div class="teams">
+      <div class="team" id="teamA">
+        <h2>Takım A</h2>
+        <input type="text" id="playerAInput" placeholder="Oyuncu adı girin">
+        <button onclick="addPlayer('A')">Oyuncu Ekle</button>
+        <ul id="teamAList"></ul>
+      </div>
+
+      <div class="team" id="teamB">
+        <h2>Takım B</h2>
+        <input type="text" id="playerBInput" placeholder="Oyuncu adı girin">
+        <button onclick="addPlayer('B')">Oyuncu Ekle</button>
+        <ul id="teamBList"></ul>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Maç Ayarlama Sistemi</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
