@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Maç Ayarla</title>
-  <link rel="stylesheet" href="style-match.css">
+  <link rel="stylesheet" href="style-match.css" />
 </head>
 <body>
-
-  <!-- Header Bölümü -->
   <header>
     <nav>
       <ul>
@@ -19,64 +17,21 @@
     </nav>
   </header>
 
-  <!-- Maç Ayarla İçeriği -->
   <section id="match-setup">
     <h1>Maç Ayarla</h1>
-    
-    <!-- Oyuncu Seçimi -->
-    <div class="player-selection">
-      <h2>Oyuncu Seç</h2>
-      <div class="player-positions">
-        <div class="position">
-          <label for="goalkeeper">Kaleci</label>
-          <select id="goalkeeper">
-            <option value="">Seçin</option>
-            <option value="Ahmet">Ahmet</option>
-            <option value="Mehmet">Mehmet</option>
-            <option value="Ali">Ali</option>
-            <!-- Diğer oyuncular eklenebilir -->
-          </select>
-        </div>
-        <div class="position">
-          <label for="forwards">Forvetler</label>
-          <select id="forwards" multiple>
-            <option value="Veli">Veli</option>
-            <option value="Can">Can</option>
-            <option value="Burak">Burak</option>
-            <!-- Diğer oyuncular eklenebilir -->
-          </select>
-        </div>
-        <div class="position">
-          <label for="midfielders">Orta Sahalar</label>
-          <select id="midfielders" multiple>
-            <option value="Emir">Emir</option>
-            <option value="Onur">Onur</option>
-            <option value="Murat">Murat</option>
-            <!-- Diğer oyuncular eklenebilir -->
-          </select>
-        </div>
-        <div class="position">
-          <label for="defenders">Defanslar</label>
-          <select id="defenders" multiple>
-            <option value="Deniz">Deniz</option>
-            <option value="Hakan">Hakan</option>
-            <option value="Serkan">Serkan</option>
-            <!-- Diğer oyuncular eklenebilir -->
-          </select>
-        </div>
+
+    <div class="team-selection">
+      <div class="team" id="teamA">
+        <h2>Takım A Oyuncuları</h2>
+        <select id="teamAPlayers" multiple size="8"></select>
+      </div>
+
+      <div class="team" id="teamB">
+        <h2>Takım B Oyuncuları</h2>
+        <select id="teamBPlayers" multiple size="8"></select>
       </div>
     </div>
 
-    <!-- Seçilen Oyuncuları Göster -->
-    <div id="selected-players">
-      <h2>Seçilen Oyuncular</h2>
-      <div id="selected-goalkeeper"></div>
-      <div id="selected-forwards"></div>
-      <div id="selected-midfielders"></div>
-      <div id="selected-defenders"></div>
-    </div>
-
-    <!-- Halı Saha Seçimi -->
     <div class="field-selection">
       <h2>Halı Saha Seç</h2>
       <div class="field-buttons">
@@ -84,38 +39,20 @@
         <button id="termal">Termal Halı Saha</button>
         <button id="arumutlu">Armutlu Halı Saha</button>
       </div>
-      <div id="fields-list" class="fields-list">
-        <!-- Seçilen halı sahalar burada görünecek -->
-      </div>
+      <div id="selectedField" style="margin-top: 10px; font-weight: bold;"></div>
     </div>
 
-    <!-- Zaman Seçimi -->
-    <div class="time-selection">
+    <div class="time-selection" style="margin-top: 20px;">
       <h2>Zaman Seç</h2>
-      <select id="time-select">
-        <option value="09:00">09:00</option>
-        <option value="10:00">10:00</option>
-        <option value="11:00">11:00</option>
-        <option value="12:00">12:00</option>
-        <option value="13:00">13:00</option>
-        <option value="14:00">14:00</option>
-        <option value="15:00">15:00</option>
-        <option value="16:00">16:00</option>
-        <option value="17:00">17:00</option>
-        <option value="18:00">18:00</option>
-      </select>
+      <select id="time-select"></select>
+      <div id="selectedTime" style="margin-top: 10px; font-weight: bold;"></div>
     </div>
-    
-    <!-- Seçilen Zamanı Göster -->
-    <div id="time-display"></div>
 
-    <!-- Maçı Ayarla Butonu -->
-    <div class="setup-buttons">
+    <div class="setup-buttons" style="margin-top: 30px;">
       <button id="setupMatch">Maçı Ayarla</button>
     </div>
   </section>
 
-  <!-- Footer Bölümü -->
   <footer>
     <p>&copy; 2025 Web Sitemiz. Tüm Hakları Saklıdır.</p>
   </footer>
