@@ -1,67 +1,87 @@
-// Sayfa yüklendiğinde oyuncuları getir
-window.onload = function () {
-  const teamAPlayers = JSON.parse(localStorage.getItem("teamAPlayers")) || [];
-  const teamBPlayers = JSON.parse(localStorage.getItem("teamBPlayers")) || [];
+// script-match.js
 
-  const teamASelect = document.getElementById("teamAPlayers");
-  const teamBSelect = document.getElementById("teamBPlayers");
+// Sayfa yüklendiğinde çalışacak
+window.onload = function() {
+  // Takım oyuncularını index sayfasından localStorage'dan alıp dolduruyoruz
+  const teamAPlayersSelect = document.getElementById('teamAPlayers');
+  const teamBPlayersSelect = document.getElementById('teamBPlayers');
 
+  let teamAPlayers = JSON.parse(localStorage.getItem('teamAPlayers')) || [];
+  let teamBPlayers = JSON.parse(localStorage.getItem('teamBPlayers')) || [];
+
+  // Takım A oyuncularını select içine ekle
   teamAPlayers.forEach(player => {
-    const option = document.createElement("option");
-    option.text = player;
-    teamASelect.add(option);
+    let option = document.createElement('option');
+    option.value = player;
+    option.textContent = player;
+    teamAPlayersSelect.appendChild(option);
   });
 
+  // Takım B oyuncularını select içine ekle
   teamBPlayers.forEach(player => {
-    const option = document.createElement("option");
-    option.text = player;
-    teamBSelect.add(option);
+    let option = document.createElement('option');
+    option.value = player;
+    option.textContent = player;
+    teamBPlayersSelect.appendChild(option);
   });
 
-  // Zaman seçeneklerini doldur
-  const timeSelect = document.getElementById("time-select");
-  const hours = ["17:00", "18:00", "19:00", "20:00"];
-  hours.forEach(hour => {
-    const opt = document.createElement("option");
-    opt.value = hour;
-    opt.textContent = hour;
-    timeSelect.appendChild(opt);
+  // Halı saha seçimi butonları
+  const fieldButtons = document.querySelectorAll('.field-buttons button');
+  const selectedFieldDisplay = document.getElementById('selectedField');
+  let selectedField = '';
+
+  fieldButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      selectedField = button.textContent;
+      selectedFieldDisplay.textContent = `Seçilen Halı Saha: ${selectedField}`;
+    });
   });
-};
 
-// Halı saha seçimi
-let selectedField = "";
-document.getElementById("yolava").onclick = () => {
-  selectedField = "Yolava Halı Saha";
-  document.getElementById("selectedField").textContent = selectedField;
-};
-document.getElementById("termal").onclick = () => {
-  selectedField = "Termal Halı Saha";
-  document.getElementById("selectedField").textContent = selectedField;
-};
-document.getElementById("arumutlu").onclick = () => {
-  selectedField = "Armutlu Halı Saha";
-  document.getElementById("selectedField").textContent = selectedField;
-};
+  // Zaman seçimi dropdownunu doldur
+  const timeSelect = document.getElementById('time-select');
+  for (let hour = 8; hour <= 17; hour++) {
+    let displayHour = hour < 10 ? `0${hour}:00` : `${hour}:00`;
+    let option = document.createElement('option');
+    option.value = displayHour;
+    option.textContent = displayHour;
+    timeSelect.appendChild(option);
+  }
 
-// Zaman seçimi
-document.getElementById("time-select").onchange = function () {
-  document.getElementById("selectedTime").textContent = this.value;
-};
+  const selectedTimeDisplay = document.getElementById('selectedTime');
+  selectedTimeDisplay.textContent = timeSelect.value;
 
-// Maçı ayarla
-document.getElementById("setupMatch").onclick = function () {
-  const teamA = Array.from(document.getElementById("teamAPlayers").options).map(o => o.text);
-  const teamB = Array.from(document.getElementById("teamBPlayers").options).map(o => o.text);
-  const matchTime = document.getElementById("time-select").value;
+  timeSelect.addEventListener('change', () => {
+    selectedTimeDisplay.textContent = timeSelect.value;
+  });
 
-  const matchData = {
-    teamA,
-    teamB,
-    field: selectedField,
-    time: matchTime
-  };
+  // Maçı ayarla butonuna basıldığında seçilen bilgileri kaydet ve Son Durum sayfasına yönlendir
+  document.getElementById('setupMatch').addEventListener('click', () => {
+    if (!selectedField) {
+      alert('Lütfen halı saha seçiniz!');
+      return;
+    }
 
-  localStorage.setItem("matchData", JSON.stringify(matchData));
-  window.location.href = "status.html";
+    if (!timeSelect.value) {
+      alert('Lütfen zaman seçiniz!');
+      return;
+    }
+
+    // Seçilen oyuncuların dizilerini al
+    const selectedTeamAPlayers = Array.from(teamAPlayersSelect.selectedOptions).map(opt => opt.value);
+    const selectedTeamBPlayers = Array.from(teamBPlayersSelect.selectedOptions).map(opt => opt.value);
+
+    if (selectedTeamAPlayers.length === 0 || selectedTeamBPlayers.length === 0) {
+      alert('Lütfen her iki takımdan en az bir oyuncu seçiniz!');
+      return;
+    }
+
+    // LocalStorage'a kaydet
+    localStorage.setItem('selectedTeamAPlayers', JSON.stringify(selectedTeamAPlayers));
+    localStorage.setItem('selectedTeamBPlayers', JSON.stringify(selectedTeamBPlayers));
+    localStorage.setItem('selectedField', selectedField);
+    localStorage.setItem('selectedTime', timeSelect.value);
+
+    // Son Durum sayfasına git
+    window.location.href = 'status.html';
+  });
 };
