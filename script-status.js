@@ -1,31 +1,25 @@
-window.onload = function () {
-  const matchData = JSON.parse(localStorage.getItem("matchData"));
+// Takım A oyuncularını alıp listele
+const teamAPlayers = JSON.parse(localStorage.getItem("teamAPlayers")) || [];
+const teamAList = document.getElementById("teamAPlayers");
+teamAPlayers.forEach(player => {
+  const li = document.createElement("li");
+  li.textContent = player;
+  teamAList.appendChild(li);
+});
 
-  if (!matchData) {
-    alert("Henüz maç ayarlanmadı.");
-    return;
-  }
+// Takım B oyuncularını alıp listele
+const teamBPlayers = JSON.parse(localStorage.getItem("teamBPlayers")) || [];
+const teamBList = document.getElementById("teamBPlayers");
+teamBPlayers.forEach(player => {
+  const li = document.createElement("li");
+  li.textContent = player;
+  teamBList.appendChild(li);
+});
 
-  const teamAList = document.getElementById("teamAPlayers");
-  const teamBList = document.getElementById("teamBPlayers");
-  const fieldSpan = document.getElementById("fieldName");
-  const timeSpan = document.getElementById("matchTime");
+// Halı saha ismini ekle
+const fieldName = localStorage.getItem("selectedField") || "Belirtilmedi";
+document.getElementById("fieldName").textContent = fieldName;
 
-  // Takım A oyuncuları
-  matchData.teamA.forEach(player => {
-    const li = document.createElement("li");
-    li.textContent = player;
-    teamAList.appendChild(li);
-  });
-
-  // Takım B oyuncuları
-  matchData.teamB.forEach(player => {
-    const li = document.createElement("li");
-    li.textContent = player;
-    teamBList.appendChild(li);
-  });
-
-  // Halı saha ve zaman bilgileri
-  fieldSpan.textContent = matchData.field || "Belirtilmemiş";
-  timeSpan.textContent = matchData.time || "Belirtilmemiş";
-};
+// Maç zamanını ekle
+const matchTime = localStorage.getItem("selectedTime") || "Belirtilmedi";
+document.getElementById("matchTime").textContent = matchTime;
